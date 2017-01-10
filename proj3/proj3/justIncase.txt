@@ -1,0 +1,44 @@
+//		 if(sortNList){//my strategy on this was to add the list to an array, then apply the same algorithm as project 2 and sort the array
+//			 Node[] temp=new Node[size];
+//			 Node index=headN.nextN;
+//			 for(int i=0;i<size;i++){
+//				 temp[i]=index;
+//				 index=index.nextN;	 
+//			 }
+//			 for(int i=0;i<temp.length;i++){
+//				 Node tempor=temp[i];
+//				 int j;
+//				 for(j=i-1;j>=0&&comp.compare(tempor,temp[j])<0;j--){
+//						 temp[j+1]=temp[j];
+//				 }
+//				 temp[j+1]=tempor;
+//			 }
+//			 headN.nextN=headN;//clear the list before re-add
+//			 Node before=headN;
+//			 for(int i=0;i<temp.length;i++){
+//				 insertN(temp[i],before,headN);
+//				 before=before.nextN;
+//			 } 
+//		 }
+//		 if(!sortNList){
+//			 Node[] temp=new Node[size];
+//			 Node index=headB.nextB;
+//			 for(int i=0;i<size;i++){
+//				 temp[i]=index;
+//				 index=index.nextB;	 
+//			 }
+//			 for(int i=0;i<temp.length;i++){
+//				 Node tempor=temp[i];
+//				 int j;
+//				 for(j=i-1;j>=0&&comp.compare(tempor,temp[j])<0;j--){
+//						 temp[j+1]=temp[j];
+//				 }
+//				 temp[j+1]=tempor;
+//			 }
+//			 headB.nextB=headB;
+//			 Node before=headB;
+//			 for(int i=0;i<temp.length;i++){
+//				 insertB(temp[i],before,headB);
+//				 before=before.nextB;
+//			 }
+//		 }

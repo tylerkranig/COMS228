@@ -1,0 +1,62 @@
+	 public void swapB(Node one,Node two){
+		 if(one.fruit.equals(two.fruit)||one.fruit==null||two.fruit==null)return;//if we are swapping the nope with itself, this would occur in recursion cases
+		 if(one.nextB.fruit.equals(two.fruit)){//if the two are right next to each other, in testing it created an infinite loop, this catches that making sure that the loop is not infinite
+			 one.nextB=two.nextB;
+			 two.nextB=one;
+			 two.previousB=one.previousB;
+			 one.previousB=two;
+			 two.previousB.nextB=two;
+			 one.nextB.previousB=one;
+		 }
+		 else if(two.nextN.fruit.equals(one.fruit)){//if the other way around so two comes before one
+			 two.nextB=one.nextB;
+			 one.nextB=two;
+			 one.previousB=two.previousB;
+			 two.previousB=one;
+			 one.previousB.nextB=one;
+			 two.nextB.previousB=two;
+		 }
+		 else{
+			 Node tempPrev=two.previousB;//we create temporary holders for the next and prev so that we do not have to make a deep copy
+			 Node tempNext=two.nextB;
+			 two.nextB=one.nextB;
+			 one.nextB.previousB=two;
+			 two.previousB=one.previousB;
+			 one.previousB.nextB=two;
+			 one.nextB=tempNext;
+			 tempNext.previousB=one;
+			 one.previousB=tempPrev;
+			 tempPrev.nextB=one;
+		 }
+	 }
+	 public void swapN(Node one,Node two){
+		 if(one.fruit.equals(two.fruit)||one.fruit==null||two.fruit==null){return;}//if we are swapping the nope with itself, this would occur in recursion cases
+		 if(one.nextN.fruit.equals(two.fruit)){//if the two are right next to each other, in testing it created an infinite loop, this catches that making sure that the loop is not infinite
+			 one.nextN=two.nextN;
+			 two.nextN=one;
+			 two.previousN=one.previousN;
+			 one.previousN=two;
+			 two.previousN.nextN=two;
+			 one.nextN.previousN=one;
+		 }
+		 else if(two.nextN.fruit.equals(one.fruit)){//if the other way around so two comes before one
+			 two.nextN=one.nextN;
+			 one.nextN=two;
+			 one.previousN=two.previousN;
+			 two.previousN=one;
+			 one.previousN.nextN=one;
+			 two.nextN.previousN=two;
+		 }
+		 else{//for this it doesn't matter which one comes first
+			 Node tempPrev=two.previousN;//we create temporary holders for the next and prev so that we do not have to make a deep copy
+			 Node tempNext=two.nextN;//this code is copied from SwapB of course, just with the B replaced with N
+			 two.nextN=one.nextN;
+			 one.nextN.previousN=two;
+			 two.previousN=one.previousN;
+			 one.previousN.nextN=two;
+			 one.nextN=tempNext;
+			 tempNext.previousN=one;
+			 one.previousN=tempPrev;
+			 tempPrev.nextN=one;
+		 }
+	 }
